@@ -1,5 +1,5 @@
 {
-  "name": "nordvpn",
+  "name": "nordvpn-autoconnect",
   "version": "0.2.0",
   "description": "linux client for nordvpn",
   "main": "index.js",
@@ -11,16 +11,16 @@
   "keywords": [
     "nordvpn"
   ],
-  "author": "https://github.com/AhmedAli7O1",
+  "author": "https://github.com/kidGodzilla",
   "license": "MIT",
-  "homepage": "https://github.com/AhmedAli7O1/nordvpn",
+  "homepage": "https://github.com/kidGodzilla/nordvpn",
   "bugs": {
-    "url": "https://github.com/AhmedAli7O1/nordvpn/issues",
-    "email": "contact@ahmedali.me"
+    "url": "https://github.com/kidGodzilla/nordvpn/issues",
+    "email": ""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AhmedAli7O1/nordvpn.git"
+    "url": "https://github.com/kidGodzilla/nordvpn.git"
   },
   "dependencies": {
     "inquirer": "^6.2.2",
@@ -29,6 +29,6 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "pkg": "^4.3.7"
+    "pkg": "^4.4.9"
   }
 }
