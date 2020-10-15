@@ -37,18 +37,19 @@ async function getBestServer(countryId) {
 }
 
 async function getOpenVpnConfig(server) {
-  const protocols = [];
+  // const protocols = [];
+  //
+  // server.technologies.forEach(protocol => {
+  //   if (protocol.identifier.indexOf('tcp') > -1) {
+  //     protocols.push('tcp');
+  //   }
+  //   else if (protocol.identifier.indexOf('udp') > -1) {
+  //     protocols.push('udp');
+  //   }
+  // });
 
-  server.technologies.forEach(protocol => {
-    if (protocol.identifier.indexOf('tcp') > -1) {
-      protocols.push('tcp');
-    }
-    else if (protocol.identifier.indexOf('udp') > -1) {
-      protocols.push('udp');
-    }
-  });
-
-  const protocol = await cli.autocomplete(protocols);
+  // const protocol = await cli.autocomplete(protocols);
+  const protocol = 'udp' || 'tcp';
 
   return get(`https://downloads.nordcdn.com/configs/files/ovpn_${protocol}/servers/${server.hostname}.${protocol}.ovpn`, false);
 }
