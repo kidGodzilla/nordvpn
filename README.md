@@ -17,22 +17,21 @@ unofficial NordVPN linux client ( command line interface )
 
 ## Setup
 
-download the latest release
+Install from source:
 ```bash
-sudo curl -L "https://github.com/AhmedAli7O1/nordvpn/releases/latest/download/nordvpn" -o /usr/local/bin/nordvpn
+npm i
 
-sudo chmod +x /usr/local/bin/nordvpn
+npm run build-linux
+
+cp dist/nordvpn /usr/local/bin/
+
+chmod +x /usr/local/bin/nordvpn
 ```
 
-instead you can install specific binary version from [here](https://github.com/AhmedAli7O1/nordvpn/releases)
 
 ## Usage
-start the vpn using `sudo nordvpn`, the first time it's going to prompt you to enter your nordvpn username and password, however it will be saved in `/home/${USER}/.nordvpn/auth.txt` to be used later and avoid writing the user/pass everytime.
+start the vpn using `nordvpn`, the first time it's going to prompt you to enter your nordvpn username and password, however it will be saved in `/home/${USER}/.nordvpn/auth.txt` to be used later and avoid writing the user/pass everytime.
 
-next it'll prompt you to search and select a country, after this you'll have to select one of the supported protocols (tcp, and udp)
-
-now it'll sort all available servers by the selected country, protocol, and current load.
+now it'll sort all available servers.
 
 it'll select the best server, download it's configurations file, append your credentials and connect to this server using the native openvpn implementation on your system.
-
-
