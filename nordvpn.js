@@ -21,11 +21,18 @@ function getCountryId(countryName) {
   }
 }
 
-async function getBestServer(countryId) {
-  const servers = await get(`https://api.nordvpn.com/v1/servers/recommendations?filters\[country_id\]=${countryId}&limit=1`, true);
+function randomItem(a) {
+  return a[Math.floor(Math.random() * a.length)]
+}
 
-  if (servers && servers.length) {
-    return servers[0];
+async function getBestServer(countryId) {
+  //let url = `https://api.nordvpn.com/v1/servers/recommendations?filters\[country_id\]=${countryId}&limit=1`;
+  let url = `https://api.nordvpn.com/v1/servers/recommendations`;
+
+  const servers = await get(url, true);
+
+  if (servers && Array.isArray(servers)) {
+    return randomItem(servers);
   }
 }
 
@@ -51,9 +58,9 @@ function applyAuth(ovpnConfig, authPath) {
 }
 
 async function setupOpenVpn(configPath, authPath) {
-  const country = await selectCountry();
-  const countryId = getCountryId(country);
-  const server = await getBestServer(countryId);
+  // const country = await selectCountry();
+  // const countryId = getCountryId(country);
+  const server = await getBestServer(); // countryId
   let ovpnConfig = await getOpenVpnConfig(server);
   ovpnConfig = applyAuth(ovpnConfig, authPath);
   await writeFile(configPath, ovpnConfig);
